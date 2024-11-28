@@ -5,7 +5,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Papelería y Novedades') }}
         </h2>
-        <!-- Botón para abrir el modal -->
+        <a href="{{ route('productos.pdf') }}" class="btn btn-primary float-end" target="_blank">Generar PDF</a>
         <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#addProductModal">
             Agregar Producto
         </button>
@@ -20,10 +20,8 @@
                     </div>
                 @endif
                 <div class="row">
-                    <!-- Columna izquierda -->
                     <div class="col-md-2 mb-3">
                     </div>
-                    <!-- Columna derecha -->
                     <div class="col-md-15">
                         <div class="card mb-3">
                             <div class="card-header">Productos</div>

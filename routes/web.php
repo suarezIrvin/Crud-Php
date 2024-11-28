@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductPdfController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +25,19 @@ Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store
 Route::get('/posts/{articulo}/edit', [PostController::class, 'edit']);
 Route::put('/posts/{articulo}/update', [PostController::class, 'update']);
 Route::delete('/posts/{articulo}/delete', [PostController::class, 'destroy']);
+Route::get('/productos/pdf', [ProductPdfController::class, 'generatePdf'])->name('productos.pdf');
+Route::get('storage/{filename}', function ($filename) {
+    $path = storage_path('app/public/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    return response()->file($path);
+});
+
+
+
 
 
 
